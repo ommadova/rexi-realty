@@ -2,8 +2,10 @@ import { useState } from "react";
 import { Mail, MessageSquare, Phone, Send, User } from "lucide-react";
 
 const initialFormState = {
+  companyName: "",  
   fullName: "",
   email: "",
+  phone: "",
   message: "",
 };
 
@@ -36,8 +38,10 @@ export default function App() {
           Accept: "application/json",
         },
         body: JSON.stringify({
+          companyName: formData.companyName,  
           fullName: formData.fullName,
           email: formData.email,
+          phone: formData.phone,
           message: formData.message,
         }),
       });
@@ -84,10 +88,9 @@ export default function App() {
             </div>
 
             <div className="brand-copy">
-              <p className="eyebrow">Client Request Portal</p>
+              <p className="eyebrow">REXI REALTY</p>
               <p className="lead">
-                Send us your request and our team will follow up promptly with
-                the next best step.
+                 Fell free to reach out for pricing, ground lease terms, surveys, and development opportunities. 
               </p>
             </div>
 
@@ -96,13 +99,13 @@ export default function App() {
                 <span className="contact-icon">
                   <Mail size={20} />
                 </span>
-                <span>info@rexirealty.com</span>
+                <span>rexirealty@gmail.com</span>
               </a>
               <a className="contact-item" href="tel:+15551234567">
                 <span className="contact-icon">
                   <Phone size={20} />
                 </span>
-                <span>+1 (555) 123-4567</span>
+                <span>+1 (832) 610-8428</span>
               </a>
             </div>
           </div>
@@ -112,7 +115,7 @@ export default function App() {
           <div className="form-panel__content">
             <div className="form-header">
               <p className="eyebrow">Submit Your Request</p>
-              <h2>Tell us what you need.</h2>
+              <h2>Tell us what you are looking for.</h2>
               <p>
                 Fill out the form below and we&apos;ll be in touch soon with
                 tailored guidance.
@@ -120,6 +123,28 @@ export default function App() {
             </div>
 
             <form className="request-form" onSubmit={handleSubmit}>
+
+               <label className="field">
+                <span>Company Name</span>
+                <div className="input-wrap">
+                  <User size={18} />
+                  <input
+                    autoComplete="name"
+                    name="companyName"
+                    placeholder="Your Company LLC"
+                    required
+                    type="text"
+                    value={formData.companyName}
+                    onChange={(event) =>
+                      setFormData((current) => ({
+                        ...current,
+                        companyName: event.target.value,
+                      }))
+                    }
+                  />
+                </div>
+              </label>
+
               <label className="field">
                 <span>Full Name</span>
                 <div className="input-wrap">
@@ -159,16 +184,36 @@ export default function App() {
                       }))
                     }
                   />
+                  
                 </div>
               </label>
-
+              <label className="field">
+                <span>Phone Number</span>
+                <div className="input-wrap">
+                  <Phone size={18} />
+                  <input
+                    autoComplete="tel"
+                    name="phone"
+                    placeholder="+1 (555) 123-4567"
+                    required
+                    type="tel"
+                    value={formData.phone}
+                    onChange={(event) =>
+                      setFormData((current) => ({
+                        ...current,
+                        phone: event.target.value,
+                      }))
+                    }
+                  />
+                </div>
+              </label>
               <label className="field">
                 <span>Your Request</span>
                 <div className="input-wrap input-wrap--textarea">
                   <MessageSquare size={18} />
                   <textarea
                     name="message"
-                    placeholder="Tell us how we can help you..."
+                    placeholder="Tell us how we can help you...   Are you looking to buy, sell, or lease a property? What size and type of property are you interested in? Do you have specific locations in mind?"
                     required
                     rows={5}
                     value={formData.message}
