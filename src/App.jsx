@@ -78,7 +78,7 @@ export default function App() {
             <div className="brand-logo-frame">
               <img
                 className="brand-logo"
-                src="/logo.jpg"
+                src="public/logo.jpg"
                 alt="Rexi Realty logo"
               />
             </div>
