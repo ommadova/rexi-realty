@@ -77,8 +77,9 @@ export default function App() {
           <div className="brand-panel__content">
             <div className="brand-logo-frame">
               <img
-                    src={`${import.meta.env.BASE_URL}logo.jpg`}
-                    alt="Logo"
+              className="brand-logo" 
+              src={`${import.meta.env.BASE_URL}logo.jpg`}
+              alt="Logo"
                     />
             </div>
 
