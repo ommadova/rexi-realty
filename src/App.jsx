@@ -77,10 +77,9 @@ export default function App() {
           <div className="brand-panel__content">
             <div className="brand-logo-frame">
               <img
-                className="brand-logo"
-                src="public/logo.jpg"
-                alt="Rexi Realty logo"
-              />
+                    src={`${import.meta.env.BASE_URL}logo.jpg`}
+                    alt="Logo"
+                    />
             </div>
 
             <div className="brand-copy">
